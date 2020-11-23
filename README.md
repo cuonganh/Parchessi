@@ -1,4 +1,4 @@
-# Parcheesi
+# Cờ cá ngựa
 Sử dụng RMI, Docker chơi cờ cá ngựa 2 - 4 người.
 
 Luật chơi được áp dụng trong game:
