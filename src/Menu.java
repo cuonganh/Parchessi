@@ -13,26 +13,26 @@ class Menu extends JPanel {
 	public Menu() {
 		setBackground(new Color(72, 209, 204));
 
-		addButton(this, "Help/Instructions", null, new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-	}
-		
-		addButton(this, "Exit Game", null, new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				if (areYouSure()) {
-					System.exit(0);
-				}
-			}
-		});
-	}
-		public void addButton(Container c, String title, ImageIcon img,
-			ActionListener a) {
-		
-		}
-		public boolean areYouSure() {
-		String[] options = { "Yes!", "No!" };
-		
-		}
+//		addButton(this, "Help/Instructions", null, new ActionListener() {
+//			public void actionPerformed(ActionEvent evt) {
+//	}
+//		
+//		addButton(this, "Exit Game", null, new ActionListener() {
+//			public void actionPerformed(ActionEvent evt) {
+//				if (areYouSure()) {
+//					System.exit(0);
+//				}
+//			}
+//		});
+//	}
+//		public void addButton(Container c, String title, ImageIcon img,
+//			ActionListener a) {
+//		
+//		}
+//		public boolean areYouSure() {
+//		String[] options = { "Yes!", "No!" };
+//		
+//		}
 
 	}
 }
