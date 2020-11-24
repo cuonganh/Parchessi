@@ -17,17 +17,11 @@ class Parchessi extends JFrame {
 				Parchessi.roll();
 				while (rollAgain == true) {
 					rollAgain = false;// Set to false imediatley
-					System.out
-							.println("Parchessi:rollButton.addActionListener(): Roll again set to false");
-					System.out
-							.println("Parchessi:rollButton.addActionListener(): Rolling Again, automatically");
-					System.out
-							.println("Parchessi:rollButton.addActionListener(): before Roll: "
-									+ roll);
+					System.out.println("Parchessi:rollButton.addActionListener(): Roll again set to false");
+					System.out.println("Parchessi:rollButton.addActionListener(): Rolling Again, automatically");
+					System.out.println("Parchessi:rollButton.addActionListener(): before Roll: " + roll);
 					roll += rollAgain();
-					System.out
-							.println("Parchessi:rollButton.addActionListener():  after Roll: "
-									+ roll);
+					System.out.println("Parchessi:rollButton.addActionListener():  after Roll: " + roll);
 				}
 				Board.movePlayer(turnValue, roll);
 				repaint();
