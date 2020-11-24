@@ -11,7 +11,33 @@ class Parchessi extends JFrame {
 		chooseNumPlayers();
 
 		// Initialize Roll Button
+		rollButton = new JButton("Roll Dice");
+		rollButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				Parchessi.roll();
+				while (rollAgain == true) {
+					rollAgain = false;// Set to false imediatley
+					System.out
+							.println("Parchessi:rollButton.addActionListener(): Roll again set to false");
+					System.out
+							.println("Parchessi:rollButton.addActionListener(): Rolling Again, automatically");
+					System.out
+							.println("Parchessi:rollButton.addActionListener(): before Roll: "
+									+ roll);
+					roll += rollAgain();
+					System.out
+							.println("Parchessi:rollButton.addActionListener():  after Roll: "
+									+ roll);
+				}
+				Board.movePlayer(turnValue, roll);
+				repaint();
+				rollButton.setEnabled(false);
+				nextTurn.setEnabled(true);
+			}
+		});
 		
+
+
 
 		// Initialize Board and Menu
 		b = new Board(numPlayers);
