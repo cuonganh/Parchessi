@@ -196,7 +196,7 @@ class Player extends JPanel {
 		// knows where each players nest is
 		public Token(int i, int x, int y, Color col) {
 			lastEight = false;
-			tokenSize = 40;
+			tokenSize = 30;
 			id = i;
 			index = 0;
 			pos = new Point(x, y);
@@ -209,7 +209,7 @@ class Player extends JPanel {
 			g.fillRect(x, y, tokenSize, tokenSize);
 			g.setColor(Color.darkGray);
 			g.drawRect(x, y, tokenSize, tokenSize);
-			g.drawString(Integer.toString(id), x + 15, y + 25);
+			g.drawString(Integer.toString(id), x + 10, y + 20);
 		}
 
 		public void draw(Graphics g) {

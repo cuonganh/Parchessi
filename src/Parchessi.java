@@ -142,9 +142,11 @@ class Parchessi extends JFrame {
 	 * Roll Dice. If both Dice are equal, Player can go again
 	 */
 	public static int roll() {
+		System.out.println("roll()!!");
 		int display = turnValue + 1;
 		Random diceRoller = new Random();
 		roll = diceRoller.nextInt(6) + 1;// Roll first Dice
+		System.out.println("roll:"+roll);
 		int roll2 = diceRoller.nextInt(6) + 1;// Roll second Dice
 
 		if (roll == roll2) {
@@ -160,6 +162,8 @@ class Parchessi extends JFrame {
 
 		// Now Update
 		roll += roll2;
+		System.out.println("roll2:"+roll2);
+		System.out.println("roll:"+roll);
 		return roll;
 	}
 
