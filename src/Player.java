@@ -10,7 +10,7 @@ class Player extends JPanel {
 	public Token[] t;
 	public final ArrayList<Point> specialPointData;// Point Data for Special
 	
-	public Player() {
+	public Player(int id) {
 		specialPointData = new ArrayList<Point>();
 		
 		// Initialize Player Details
@@ -33,5 +33,61 @@ class Player extends JPanel {
 			
 		}
 	}
-
+	
+	
+	public ArrayList<String> getAvailableTokens() {
+		
+	}
+	
+	
+	public int getPID() {
+		
+	}
+	
+	
+	public int getOffset() {
+		
+	}
+	
+	
+	//Choose Player's Token to move with Error Bounds Checking
+	public int chooseToken() {
+		
+	}
+	
+	
+	//Select Token To Move, returns an integer representing a valid usable token. -1 otherwise
+	public int autoSelectFreeToken() {
+		
+	}
+	
+	
+	public void setPoint(int x, int y) {
+		
+	}
+	
+	
+	//Updates the Player info and tokens on board
+	public void update(Graphics g) {
+		
+	}
+	
+	
+	//Checks if Player has won. Returns a boolean representation of the condition
+	public boolean hasWon() {
+		
+	}
+	
+	
+	//gets Player Color
+	public Color getColor() {
+		
+	}
+	
+	
+	//Nested Token Object Class, each player has 4 tokens
+	class Token {
+		
+	}
+	
 }
