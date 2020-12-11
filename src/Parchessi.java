@@ -34,7 +34,17 @@ class Parchessi extends JFrame {
 			}
 		});
 		
+		// Initialize Next Turn Button
+		nextTurn = new JButton("Next Turn");
+		nextTurn.setEnabled(false);
+		nextTurn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				rollButton.setEnabled(true);
+				nextTurn.setEnabled(false);
+				getNextTurn();
 
+			}
+		});
 
 
 		// Initialize Board and Menu
