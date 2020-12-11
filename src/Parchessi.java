@@ -25,6 +25,10 @@ class Parchessi extends JFrame {
 				}
 				Board.movePlayer(turnValue, roll);
 				repaint();
+				int res = Board.checkWin();
+				if (res > -1) {
+					gameHasBeenWon(res);
+				}
 				rollButton.setEnabled(false);
 				nextTurn.setEnabled(true);
 			}
