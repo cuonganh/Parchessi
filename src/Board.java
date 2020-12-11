@@ -20,7 +20,8 @@ public class Board extends JPanel {
 	 * Should only ever return -1,0,1,2,3. Nothing else.
 	 */
 	public static int checkWin() {
-    
+	
+		return -1;
   }
   
   
@@ -28,14 +29,14 @@ public class Board extends JPanel {
 	 * MovePlayer moves and sets the players Token locations on the board tv =
 	 * turnValue Moves Player based on tv index.
 	 */
-	public static void movePlayer() {
+	public static void movePlayer(int tv, int r) {
     
   }
   
   
 	 //Returns List of Points, for the Game Logic Array.
 	public ArrayList<Point> getPoints() {
-    
+		
   }
   
   
