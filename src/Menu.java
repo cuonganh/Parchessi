@@ -15,6 +15,22 @@ class Menu extends JPanel {
 	/* Add's a button to the Panel */
 	public Menu() {
 		setBackground(new Color(72, 209, 204));
+<<<<<<< cuongtv-patch-1
+		
+	}
+	
+	//Generates a simple button
+	public void addButton(){
+		
+	}
+	
+	//Yes/No Dialog Generator for basic yes/no menu questions
+	public boolean areYouSure() {
+		
+	}
+	
+}
+=======
 		setVisible(true);
 
 		/*
@@ -84,3 +100,4 @@ class Menu extends JPanel {
 	}
 
 }
+>>>>>>> main

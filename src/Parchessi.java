@@ -2,12 +2,11 @@ import java.awt.AWTException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
 @SuppressWarnings("serial")
 class Parchessi extends JFrame {
 
 	public Parchessi() {
-		chooseNumPlayers();
+
 	}
 	public static void chooseNumPlayers() {
 		String[] options = { "1", "2", "3", "4" };
@@ -24,9 +23,7 @@ class Parchessi extends JFrame {
 //			}
 		//}
 
-	}
-	public static void main(String[] args) throws AWTException {
-	new Parchessi();
+
 	}
 
 }
