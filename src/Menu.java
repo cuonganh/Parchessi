@@ -12,4 +12,17 @@ class Menu extends JPanel {
 
 	public Menu() {
 		setBackground(new Color(72, 209, 204));
+		
+	}
+	
+	//Generates a simple button
+	public void addButton(){
+		
+	}
+	
+	//Yes/No Dialog Generator for basic yes/no menu questions
+	public boolean areYouSure() {
+		
+	}
+	
 }
