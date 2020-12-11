@@ -15,7 +15,7 @@ public class Board extends JPanel {
   }
 
   
-  /*
+  	/*
 	 * Check For Winner! Return -1 for no winner, else return player index.
 	 * Should only ever return -1,0,1,2,3. Nothing else.
 	 */
@@ -25,7 +25,7 @@ public class Board extends JPanel {
   }
   
   
-  /*
+  	/*
 	 * MovePlayer moves and sets the players Token locations on the board tv =
 	 * turnValue Moves Player based on tv index.
 	 */
@@ -58,7 +58,7 @@ public class Board extends JPanel {
   }
   
   
-  //Handles Painting the Players info and Tokens
+  	//Handles Painting the Players info and Tokens
 	public void paintPlayerOverlay() {
     
   }
