@@ -17,6 +17,11 @@ class Player extends JPanel {
 	private int pid;// Player id
 	private Point p;// Player info,Starting point for pieces for each player
 	private Color color;
+	private Color red = new Color(255, 0, 0);
+	private Color blue = new Color(0, 0, 255);
+	private Color green = new Color(0, 255, 0);
+	private Color yellow = new Color(255, 255, 0);
+	private Color[] col = {red,blue,green,yellow};
 	private int offset;
 	public Token[] t;
 	public final ArrayList<Point> specialPointData;// Point Data for Special
@@ -150,7 +155,7 @@ class Player extends JPanel {
 		g.drawString("Player " + pid, p.x + 9, p.y + 16);
 		// Update Tokens
 		for (int i = 0; i < NUM_TOKENS; i++) {
-			t[i].draw(g);
+			t[i].draw(g,col[i]);
 		}
 	}
 
@@ -204,37 +209,37 @@ class Player extends JPanel {
 		}
 
 		// Draws a token, anywhere on the board we want to
-		public void drawToken(Graphics g, int x, int y) {
-			g.setColor(Color.white);
+		public void drawToken(Graphics g, int x, int y,Color col) {
+			g.setColor(col);
 			g.fillRect(x, y, tokenSize, tokenSize);
 			g.setColor(Color.darkGray);
 			g.drawRect(x, y, tokenSize, tokenSize);
 			g.drawString(Integer.toString(id), x + 10, y + 20);
 		}
 
-		public void draw(Graphics g) {
+		public void draw(Graphics g,Color col) {
 			// If not on board(index 0), draw within it's corresponding box
 			if (index == 0) {
 				switch (id) {
 				case 0:
-					drawToken(g, p.x + 115, p.y + 115);
+					drawToken(g, p.x + 115, p.y + 115,col);
 					break;
 				case 1:
-					drawToken(g, p.x + 165, p.y + 115);
+					drawToken(g, p.x + 165, p.y + 115,col);
 					break;
 				case 2:
-					drawToken(g, p.x + 115, p.y + 165);
+					drawToken(g, p.x + 115, p.y + 165,col);
 					break;
-				case 3:
-					drawToken(g, p.x + 165, p.y + 165);
-					break;
+//				case 3:
+//					drawToken(g, p.x + 165, p.y + 165,col);
+//					break;
 				default:
 				}
 			} else {
 				if (getPositionIndex() >= 63) {// Else Draw Safe zone
-					drawToken(g, 335 + 10, 355 + 10);
+					drawToken(g, 335 + 0, 355 + 0,col);
 				} else {// Else Draw on Board
-					drawToken(g, getX(), getY());
+					drawToken(g, getX(), getY(),col);
 				}
 			}
 
