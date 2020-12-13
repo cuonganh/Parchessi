@@ -28,16 +28,24 @@ class Player extends JPanel {
         pid = id + 1;
         switch (id) {
             case 0:// player1
-
+                p = new Point(60, 30);
+			    offset = 25;// Perfect
+			    color = Color.RED;
                 break;
             case 1:// player2
-
+                p = new Point(514, 30);
+                offset = 31;
+                color = Color.BLUE;
                 break;
             case 2:// player3
-
+                p = new Point(60, 485);
+                offset = -1;
+                color = Color.YELLOW;               
                 break;
             case 3:// player4
-
+                p = new Point(514, 485);
+                offset = 47;
+                color = Color.GREEN;
                 break;
             default: // This should never happen
                 p = new Point(60, 60);
