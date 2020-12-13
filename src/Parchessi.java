@@ -1,5 +1,6 @@
-import java.awt.AWTException;
-import javax.swing.JFrame;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 class Parchessi extends JFrame {
@@ -37,13 +38,13 @@ class Parchessi extends JFrame {
 		// Initialize Next Turn Button
 		nextTurn = new JButton("Next Turn");
 		nextTurn.setEnabled(false);
-		nextTurn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				rollButton.setEnabled(true);
-				nextTurn.setEnabled(false);
-				getNextTurn();
+		// nextTurn.addActionListener(new ActionListener() {
+		// 	public void actionPerformed(ActionEvent evt) {
+		// 		rollButton.setEnabled(true);
+		// 		nextTurn.setEnabled(false);
+		// 		getNextTurn();
 
-			}
+		// 	}
 		});
 
 
