@@ -120,76 +120,77 @@ class Player extends JPanel {
 	*/
 	class Token {
 
-	// This constructor takes the players individual Corner Parameters so it
-	// knows where each players nest is
-	public Token(int i, int x, int y, Color col) {
+		// This constructor takes the players individual Corner Parameters so it
+		// knows where each players nest is
+		public Token(int i, int x, int y, Color col) {
 
-	}
+		}
 
-	// Draws a token, anywhere on the board we want to
-	public void drawToken(Graphics g, int x, int y) {
+		// Draws a token, anywhere on the board we want to
+		public void drawToken(Graphics g, int x, int y) {
 
-	}
+		}
 
-	public void draw(Graphics g) {
+		public void draw(Graphics g) {
 
-	}
+		}
 
-	/*
-	 * If the player has traversed the entire board, then we want to go down the
-	 * players safe zone for a win! Returns -1 if false Returns any other positive
-	 * value to represent how many spaces the user can traverse following the turn
-	 */
-	public int checkTraversal() {
+		/*
+		 * If the player has traversed the entire board, then we want to go down the
+		 * players safe zone for a win! Returns -1 if false Returns any other positive
+		 * value to represent how many spaces the user can traverse following the turn
+		 */
+		public int checkTraversal() {
 
-	}
+		}
 
-	/*
-	 * gets the safe zone condition
-	 */
-	public boolean getSafeZone() {
-		return lastEight;
-	}
+		/*
+		 * gets the safe zone condition
+		 */
+		public boolean getSafeZone() {
+			return lastEight;
+		}
 
-	/*
-	 * sets the safe zone condition
-	 */
-	public void setSafeZone(boolean b) {
-		lastEight = b;
-	}
+		/*
+		 * sets the safe zone condition
+		 */
+		public void setSafeZone(boolean b) {
+			lastEight = b;
+		}
 
-	/*
-	 * Checks to see if the token is Safe, or not
-	 */
-	public boolean isSafe() {
+		/*
+		 * Checks to see if the token is Safe, or not
+		 */
+		public boolean isSafe() {
 
-	}
+		}
 
 
-	// Getter and Setter
-	public void setX(int xPos) {
-		pos.x = xPos;
-	}
+		// Getter and Setter
+		public void setX(int xPos) {
+			pos.x = xPos;
+		}
 
-	public int getX() {
-		return pos.x;
-	}
+		public int getX() {
+			return pos.x;
+		}
 
-	public void setY(int yPos) {
-		pos.y = yPos;
-	}
+		public void setY(int yPos) {
+			pos.y = yPos;
+		}
 
-	public int getY() {
-		return pos.y;
-	}
+		public int getY() {
+			return pos.y;
+		}
 
-	public int getWidth() {
-		return tokenSize;
-	}
+		public int getWidth() {
+			return tokenSize;
+		}
 
-	public int getHeight() {
-		return tokenSize;
-	}
+		public int getHeight() {
+			return tokenSize;
+		}
 		
+	}
 
 }
