@@ -29,8 +29,8 @@ class Player extends JPanel {
         switch (id) {
             case 0:// player1
                 p = new Point(60, 30);
-			    offset = 25;// Perfect
-			    color = Color.RED;
+		offset = 25;// Perfect
+		color = Color.RED;
                 break;
             case 1:// player2
                 p = new Point(514, 30);
@@ -51,7 +51,12 @@ class Player extends JPanel {
                 p = new Point(60, 60);
                 color = Color.RED;
         }
-
+	    
+	t = new Token[NUM_TOKENS];
+	for (int i = 0; i < NUM_TOKENS; i++) {
+		t[i] = new Token(i, p.x, p.y, getColor());
+	}
+	    
     }
 
     public ArrayList<String> getAvailableTokens() {
