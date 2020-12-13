@@ -69,18 +69,21 @@ class Player extends JPanel {
 	}
 
 	public int getPID() {
-	return pid;
+		return pid;
 	}
 
 	public int getOffset() {
-	return offset;
+		return offset;
 	}
 
 	/*
 	* Choose Player's Token to move with Error Bounds Checking
 	*/
 	public int chooseToken() {
-
+		int tok = -1;
+		ArrayList<String> available = getAvailableTokens();
+		
+		return tok;
 	}
 
 	public int autoSelectFreeToken() {
@@ -88,7 +91,7 @@ class Player extends JPanel {
 	}
 
 	public void setPoint(int x, int y) {
-	p = new Point(x, y);
+		p = new Point(x, y);
 	}
 
 	/*
@@ -109,7 +112,7 @@ class Player extends JPanel {
 	* gets Player Color
 	*/
 	public Color getColor() {
-	return color;
+		return color;
 	}
 
 	/*
@@ -145,14 +148,14 @@ class Player extends JPanel {
 	 * gets the safe zone condition
 	 */
 	public boolean getSafeZone() {
-	    return lastEight;
+		return lastEight;
 	}
 
 	/*
 	 * sets the safe zone condition
 	 */
 	public void setSafeZone(boolean b) {
-	    lastEight = b;
+		lastEight = b;
 	}
 
 	/*
