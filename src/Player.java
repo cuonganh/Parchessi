@@ -164,7 +164,29 @@ class Player extends JPanel {
 
 
 	// Getter and Setter
+	public void setX(int xPos) {
+		pos.x = xPos;
+	}
 
+	public int getX() {
+		return pos.x;
+	}
+
+	public void setY(int yPos) {
+		pos.y = yPos;
+	}
+
+	public int getY() {
+		return pos.y;
+	}
+
+	public int getWidth() {
+		return tokenSize;
+	}
+
+	public int getHeight() {
+		return tokenSize;
+	}
 		
 
 }
