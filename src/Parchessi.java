@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -38,13 +39,13 @@ class Parchessi extends JFrame {
 		// Initialize Next Turn Button
 		nextTurn = new JButton("Next Turn");
 		nextTurn.setEnabled(false);
-		// nextTurn.addActionListener(new ActionListener() {
-		// 	public void actionPerformed(ActionEvent evt) {
-		// 		rollButton.setEnabled(true);
-		// 		nextTurn.setEnabled(false);
-		// 		getNextTurn();
+		nextTurn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				rollButton.setEnabled(true);
+				nextTurn.setEnabled(false);
+				getNextTurn();
 
-		// 	}
+			}
 		});
 
 
