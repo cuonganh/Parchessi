@@ -65,7 +65,13 @@ class Player extends JPanel {
     	}
 
 	public ArrayList<String> getAvailableTokens() {
-
+		ArrayList<String> available = new ArrayList<String>();
+		for (int i = 0; i < 4; i++) {
+			if (!t[i].isSafe()) {
+				available.add(Integer.toString(i));
+			}
+		}
+		return available;
 	}
 
 	public int getPID() {
