@@ -87,7 +87,9 @@ class Player extends JPanel {
 	}
 
 	public int autoSelectFreeToken() {
-
+		int tok = -1;
+		
+		return tok;
 	}
 
 	public void setPoint(int x, int y) {
