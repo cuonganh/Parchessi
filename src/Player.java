@@ -90,7 +90,7 @@ class Player extends JPanel {
 		int tok = -1;
 		for (int k = 0; k < NUM_TOKENS; k++) {
 			if (!t[k].isSafe()) {
-				
+				// Grab the first not safe token!
 				tok = k;
 			}
 		}
