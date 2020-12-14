@@ -115,6 +115,33 @@ public class Board extends JPanel {
 		}
 		y -= size;
 		x += size;
+
+		// Right, top
+		for (int k = 0; k < 7; k++) {
+			g.setColor(tile);
+			g.drawRect(x, y, w, h);
+			points.add(new Point(x, y));
+			x += size;
+		}
+
+		// Right, Center
+		y += size;
+		x -= size;
+		g.setColor(blue);// SafeZone
+		g.fillRect(x, y, w, h);
+		g.setColor(tile);// SafeZone
+		// System.out.println("right pt:" + x + " "+ y);
+		g.drawRect(x, y, w, h);
+		points.add(new Point(x, y));
+		y += size;
+
+		// Right, bottom
+		for (int k = 0; k < 7; k++) {
+			g.setColor(tile);
+			g.drawRect(x, y, w, h);
+			points.add(new Point(x, y));
+			x -= size;
+		}
   	}
 
 }
