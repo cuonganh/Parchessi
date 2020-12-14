@@ -1,4 +1,7 @@
-import javax.swing.JPanel;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.util.ArrayList;
+
 
 @SuppressWarnings("serial")
 public class Board extends JPanel {
@@ -59,9 +62,11 @@ public class Board extends JPanel {
   
   
   	//Handles Painting the Players info and Tokens
-	public void paintPlayerOverlay() {
-    
-  }
+	public void paintPlayerOverlay(Graphics g) {
+		for (int i = 0; i < p.length; i++) {
+			p[i].update(g);
+		}
+	}
   
   
 	 //Paints the Board, Players, and tokens
