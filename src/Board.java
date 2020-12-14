@@ -71,7 +71,50 @@ public class Board extends JPanel {
   
 	 //Paints the Board, Players, and tokens
 	public void paint(Graphics g) {
-    
-  }
+		super.paint(g);
+		points = new ArrayList<Point>();
+		int size = SIZE;
+		int x = 15;// starting
+		int y = 315;
+		int w = size;
+		int h = size;
+
+		// Left, top
+		for (int k = 0; k < 7; k++) {
+			g.setColor(tile);
+			g.drawRect(x, y, w, h);
+			points.add(new Point(x, y));
+			x += size;
+		}
+
+		// Top, Left
+		for (int k = 0; k < 8; k++) {
+			g.setColor(tile);
+			g.drawRect(x, y, w, h);
+			points.add(new Point(x, y));
+			y -= size;
+		}
+		
+		x += size;
+		y += size;
+		// Top, Center
+		g.setColor(red);// SafeZone
+		g.fillRect(x, y, w, h);
+		// System.out.println("top pt:" + x + " "+ y);
+		g.setColor(tile);// SafeZone
+		g.drawRect(x, y, w, h);
+		points.add(new Point(x, y));
+		x += size;
+
+		// Top, right
+		for (int k = 0; k < 8; k++) {
+			g.setColor(tile);
+			g.drawRect(x, y, w, h);
+			points.add(new Point(x, y));
+			y += size;
+		}
+		y -= size;
+		x += size;
+  	}
 
 }
