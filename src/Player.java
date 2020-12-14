@@ -88,7 +88,12 @@ class Player extends JPanel {
 
 	public int autoSelectFreeToken() {
 		int tok = -1;
-		
+		for (int k = 0; k < NUM_TOKENS; k++) {
+			if (!t[k].isSafe()) {
+				
+				tok = k;
+			}
+		}
 		return tok;
 	}
 
