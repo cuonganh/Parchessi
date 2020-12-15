@@ -102,9 +102,12 @@ public class Board extends JPanel {
 	}
   
 	 //Prints out point list for debugging purposes
+	
 	public void printPoints() {
-    
-  }
+		for (int i = 0; i < points.size(); i++) {
+			System.out.println(points.get(i));
+		}
+	}
   
   
 	//Returns Block Size for Board
