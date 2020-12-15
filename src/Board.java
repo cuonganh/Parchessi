@@ -1,7 +1,7 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
-import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Board extends JPanel {
@@ -193,6 +193,55 @@ public class Board extends JPanel {
 			points.add(new Point(x, y));
 			x -= size;
 		}
+
+		// bottom, right
+		for (int k = 0; k < 8; k++) {
+			g.setColor(tile);
+			g.drawRect(x, y, w, h);
+			points.add(new Point(x, y));
+			y += size;
+		}
+		x -= size;
+		y -= size;
+
+		// bottom, Center
+		g.setColor(green);// SafeZone
+		g.fillRect(x, y, w, h);
+		// System.out.println("bottm pt:" + x + " "+ y);
+		g.setColor(tile);// SafeZone
+		g.drawRect(x, y, w, h);
+		points.add(new Point(x, y));
+		x -= size;
+
+		// bottom, left
+		for (int k = 0; k < 8; k++) {
+			g.setColor(tile);
+			g.drawRect(x, y, w, h);
+
+			points.add(new Point(x, y));
+			y -= size;
+		}
+		y += size;
+		x -= size;
+
+		// Left, bottom
+		for (int k = 0; k < 7; k++) {
+			g.setColor(tile);
+			g.drawRect(x, y, w, h);
+			points.add(new Point(x, y));
+			x -= size;
+		}
+
+		// left, Center
+		y -= size;
+		x += size;
+		g.setColor(yellow);// SafeZone
+		g.fillRect(x, y, w, h);
+		// System.out.println("left pt:" + x + " "+ y);
+		g.setColor(tile);// SafeZone
+		g.drawRect(x, y, w, h);
+		points.add(new Point(x, y));
+		x += size;
   	}
 
 }
