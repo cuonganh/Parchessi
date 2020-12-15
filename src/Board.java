@@ -242,6 +242,48 @@ public class Board extends JPanel {
 		g.drawRect(x, y, w, h);
 		points.add(new Point(x, y));
 		x += size;
+
+		// safeBorder Horizontal
+		for (int k = 0; k < 7; k++) {
+			g.setColor(safeFill);
+			g.fillRect(x + 1, y + 1, w - 2, h - 2);
+			g.setColor(safeBorder);// SafeZone
+			g.drawRect(x, y, w, h);
+			x += size;
+		}
+		g.setColor(base);// SafeZone
+		g.fillRect(x, y, w, h);
+		g.setColor(safeBorder);// SafeZone
+		g.drawRect(x, y, w, h);
+		x += size;
+		for (int k = 0; k < 7; k++) {
+			g.setColor(safeFill);
+			g.fillRect(x + 1, y + 1, w - 2, h - 2);
+			g.setColor(safeBorder);// SafeZone
+			g.drawRect(x, y, w, h);
+			x += size;
+		}
+		x -= size * 8;
+		y -= size * 7;
+
+		// safeBorder Vertical
+		for (int k = 0; k < 7; k++) {
+			g.setColor(safeFill);
+			g.fillRect(x + 1, y + 1, w - 2, h - 2);
+			g.setColor(safeBorder);// SafeZone
+			g.drawRect(x, y, w, h);
+			y += size;
+		}
+		y += size;// skip one
+		for (int k = 0; k < 7; k++) {
+			g.setColor(safeFill);
+			g.fillRect(x + 1, y + 1, w - 2, h - 2);
+			g.setColor(safeBorder);// SafeZone
+			g.drawRect(x, y, w, h);
+			y += size;
+		}
+
+		paintPlayerOverlay(g);
   	}
 
 }
