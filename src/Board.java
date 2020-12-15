@@ -33,7 +33,37 @@ public class Board extends JPanel {
 	 * turnValue Moves Player based on tv index.
 	 */
 	public static void movePlayer(int tv, int r) {
-    
+    		int tok = p[tv].chooseToken();// Select Token
+		int i = p[tv].t[tok].getPositionIndex();// Get the Current Index
+
+		p[tv].t[tok].setPositionIndex(i + r);// Set the current Index + the roll
+												// value
+		// Get the current index (i+r) for the point data
+		int z = p[tv].t[tok].getPositionIndex() + p[tv].getOffset();
+
+		// Check if we've made a complete traversal. This condition should only
+		// happen once
+		if (p[tv].t[tok].checkTraversal() > -1) {
+			p[tv].t[tok].setSafeZone(true);
+		}
+		// If we have made a complete traversal, go down the special lane
+		if (p[tv].t[tok].getSafeZone()) {
+			if (z > p[tv].specialPointData.size()) {
+				z = p[tv].specialPointData.size() - 1;
+			}
+		}// Otherwise, continue moving
+		else {
+			if (z > points.size()) {
+				// If the calculated index is larger than the board, the set it
+				// to itself w/ modulo
+				// Handles Offset issues
+				z = z % points.size() + 1;
+			}
+			p[tv].t[tok].setX(points.get(z).x + 10);
+			p[tv].t[tok].setY(points.get(z).y + 10);
+			// System.out.println("pt:" + points.get(z).x + " "+
+			// points.get(z).y);
+		}
   }
   
   
