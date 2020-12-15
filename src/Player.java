@@ -88,6 +88,23 @@ class Player extends JPanel {
 	public int chooseToken() {
 		int tok = -1;
 		ArrayList<String> available = getAvailableTokens();
+		if (available.size() > 0) {
+			while (tok > 3 || tok < 0) {
+				String[] options = new String[available.size()];
+				options = available.toArray(options);
+				String x = (String) JOptionPane.showInputDialog(null,
+						"Which Token Would You Like To Move? (WTWYLTM?)",
+						"Parcheesi", JOptionPane.QUESTION_MESSAGE, null,
+						options, autoSelectFreeToken());
+
+				if (x == null) {
+					tok = autoSelectFreeToken();
+				} else {
+					tok = Integer.parseInt(x);
+				}
+				// tok = Integer.parseInt(x);
+			}
+		}
 		
 		return tok;
 	}

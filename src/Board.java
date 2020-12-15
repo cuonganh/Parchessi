@@ -108,7 +108,7 @@ public class Board extends JPanel {
   
 	//Returns Block Size for Board
 	public int getBlockSize() {
-    
+		return SIZE;
   }
   
   
