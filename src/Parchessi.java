@@ -1,15 +1,43 @@
+package src;
+import java.awt.AWTException;
 import java.awt.Color;
+import java.awt.Robot;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.util.Random;
+
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 @SuppressWarnings("serial")
 class Parchessi extends JFrame {
 
+	private static int turnValue;
+	private static int displayValue;
+	private static int roll;
+	private static int numPlayers;
+	private static JFrame gameFrame;
+	private static JLabel rollView;
+	private static Board b;
+	private static boolean rollAgain;
+	private Menu m;
+	private JPanel mContainer;
+	private JButton rollButton;
+	private JButton nextTurn;
+	
 	public Parchessi() {
+		// rollAgain is initially false
+		rollAgain = false;
 		// Set and Initialize Number of Players
 		turnValue = 0;
 		displayValue = turnValue + 1;
+		// numPlayers = 1;
 		chooseNumPlayers();
 
 		// Initialize Roll Button
