@@ -18,6 +18,19 @@ import javax.swing.border.EmptyBorder;
 @SuppressWarnings("serial")
 class Parchessi extends JFrame {
 
+	private static int turnValue;
+	private static int displayValue;
+	private static int roll;
+	private static int numPlayers;
+	private static JFrame gameFrame;
+	private static JLabel rollView;
+	private static Board b;
+	private static boolean rollAgain;
+	private Menu m;
+	private JPanel mContainer;
+	private JButton rollButton;
+	private JButton nextTurn;
+	
 	public Parchessi() {
 		// Set and Initialize Number of Players
 		turnValue = 0;
