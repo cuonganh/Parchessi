@@ -21,7 +21,7 @@ class Player extends JPanel {
 	private Color blue = new Color(0, 0, 255);
 	private Color green = new Color(0, 255, 0);
 	private Color yellow = new Color(255, 255, 0);
-	private Color[] col = {red,blue,green,yellow};
+	
 	private int offset;
 	public Token[] t;
 	public final ArrayList<Point> specialPointData;// Point Data for Special
@@ -147,7 +147,7 @@ class Player extends JPanel {
 	/*
 	 * Updates the Player info and tokens on board
 	 */
-	public void update(Graphics g) {
+	public void update(Graphics g,Color col) {
 		g.setColor(color);
 		g.fillRect(p.x, p.y, 310, 310);
 		g.setColor(Color.BLACK);
@@ -155,7 +155,7 @@ class Player extends JPanel {
 		g.drawString("Player " + pid, p.x + 9, p.y + 16);
 		// Update Tokens
 		for (int i = 0; i < NUM_TOKENS; i++) {
-			t[i].draw(g,col[i]);
+			t[i].draw(g,col);
 		}
 	}
 
@@ -230,9 +230,9 @@ class Player extends JPanel {
 				case 2:
 					drawToken(g, p.x + 115, p.y + 165,col);
 					break;
-//				case 3:
-//					drawToken(g, p.x + 165, p.y + 165,col);
-//					break;
+				case 3:
+					drawToken(g, p.x + 165, p.y + 165,col);
+					break;
 				default:
 				}
 			} else {
