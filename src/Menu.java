@@ -56,8 +56,7 @@ class Menu extends JPanel {
 	/*
 	 * Generates a simple button
 	 */
-	public void addButton(Container c, String title, ImageIcon img,
-			ActionListener a) {
+	public void addButton(Container c, String title, ImageIcon img,	ActionListener a) {
 		JButton b = new JButton(title);
 		c.add(b);
 		b.addActionListener(a);
@@ -78,4 +77,5 @@ class Menu extends JPanel {
 		}
 
 	}
+	
 }
