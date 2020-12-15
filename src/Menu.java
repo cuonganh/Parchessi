@@ -77,4 +77,5 @@ class Menu extends JPanel {
 		}
 
 	}
+	
 }
