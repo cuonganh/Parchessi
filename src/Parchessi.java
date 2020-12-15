@@ -32,9 +32,12 @@ class Parchessi extends JFrame {
 	private JButton nextTurn;
 	
 	public Parchessi() {
+		// rollAgain is initially false
+		rollAgain = false;
 		// Set and Initialize Number of Players
 		turnValue = 0;
 		displayValue = turnValue + 1;
+		// numPlayers = 1;
 		chooseNumPlayers();
 
 		// Initialize Roll Button
