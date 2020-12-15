@@ -31,7 +31,11 @@ public class Board extends JPanel {
   
   //Function to pre-load the points for all pieces to aid in debugging traversal issues
   public static void debugLoadPoints() {
-    
+    for (int i = 0; i < numGamePlayers; i++) {
+			for (int j = 0; j < numGamePlayers; j++) {
+				p[i].t[j].setPositionIndex(61);
+			}
+		}
   }
 
   
