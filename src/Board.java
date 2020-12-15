@@ -1,14 +1,31 @@
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
-
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Board extends JPanel {
+	private static ArrayList<Point> points;
+	private static int numGamePlayers;
+	private static Player[] p;
+	private Color tile = new Color(0, 0, 0);
+	private Color red = new Color(255, 0, 0);
+	private Color blue = new Color(0, 0, 255);
+	private Color green = new Color(0, 255, 0);
+	private Color yellow = new Color(255, 255, 0);
+	private Color safeBorder = new Color(0, 255, 0);
+	private Color safeFill = new Color(0, 150, 150);
+	private Color base = new Color(0, 179, 21);
+	private int SIZE =45;
   
   //Board Constructor Constructs a custom board for numPlayers to play
-  public Board() {
-    
+  public Board(int numPlayers) {
+    numGamePlayers = numPlayers;
+
+		p = new Player[numPlayers];
+		for (int i = 0; i < numPlayers; i++) {
+			p[i] = new Player(i);
+		}
   }
   
   
