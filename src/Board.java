@@ -98,9 +98,8 @@ public class Board extends JPanel {
   
 	 //Returns Point List Length
 	public int getPointLength() {
-    
-  }
-  
+		return points.size();
+	}
   
 	 //Prints out point list for debugging purposes
 	public void printPoints() {
