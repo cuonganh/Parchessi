@@ -90,8 +90,10 @@ public class Board extends JPanel {
   
 	 //Returns List of Points, for the Game Logic Array.
 	public ArrayList<Point> getPoints() {
-		
-  }
+		ArrayList<Point> pts = new ArrayList<Point>();
+		pts = points;
+		return pts;
+	}
   
   
 	 //Returns Point List Length
