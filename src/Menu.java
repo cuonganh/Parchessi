@@ -1,4 +1,4 @@
-package src;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -67,7 +67,9 @@ class Menu extends JPanel {
 	 */
 	public boolean areYouSure() {
 		String[] options = { "Yes!", "No!" };
-		String x = (String) JOptionPane.showInputDialog(null, "Are You Sure?", "Parcheesi", JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		String x = (String) JOptionPane.showInputDialog(null, "Are You Sure?",
+				"Parcheesi", JOptionPane.QUESTION_MESSAGE, null, options,
+				options[0]);
 		if (x == "Yes!") {
 			return true;
 		} else {

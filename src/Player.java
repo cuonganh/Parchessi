@@ -1,9 +1,11 @@
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /*
  * POINT DATA DECLARED AT BOTTOM OF FILE!!! In Token Class
@@ -12,36 +14,32 @@ import javax.swing.JOptionPane;
 class Player extends JPanel {
 
 	private final int NUM_TOKENS = 4;
-    	private int pid;// Player id
-    	private Point p;// Player info,Starting point for pieces for each player
-    	private Color color;
+	private int pid;// Player id
+	private Point p;// Player info,Starting point for pieces for each player
+	private Color color;
 	private Color red = new Color(255, 0, 0);
 	private Color blue = new Color(0, 0, 255);
 	private Color green = new Color(0, 255, 0);
 	private Color yellow = new Color(255, 255, 0);
-	private Color[] col = {red,blue,green,yellow};
+	
 	private int offset;
 	public Token[] t;
 	public final ArrayList<Point> specialPointData;// Point Data for Special
+													// Traversals
 
-    	public Player(int id) {
-
-        	specialPointData = new ArrayList<Point>();
-
-        	// Initialize Player Details
-        	pid = id + 1;
-        	switch (id) {
-            	case 0:// player1
+	// Constructor Expects player one to logically be '0', so we increment it to
+	// '1'
+	public Player(int id) {
+		specialPointData = new ArrayList<Point>();
+		// Initialize Player Details
+		pid = id + 1;
+		switch (id) {
+		case 0:// player1
 			p = new Point(60, 30);
 			offset = 25;// Perfect
-			color = Color.RED;
-			break;
-		    case 1:// player2
-			p = new Point(514, 30);
-			offset = 31;
-			color = Color.BLUE;
-			break;
-				//			specialPointData.add(new Point(335, 35));
+			color = Color.RED;// color = new Color(255, 185, 15);//Orange
+			// Special Point Data for Traversals
+//			specialPointData.add(new Point(335, 35));
 //			specialPointData.add(new Point(335, 75));
 //			specialPointData.add(new Point(335, 115));
 //
@@ -52,27 +50,33 @@ class Player extends JPanel {
 //			specialPointData.add(new Point(335, 275));
 //			specialPointData.add(new Point(335, 315));
 //			specialPointData.add(new Point(335, 355));
-		    case 2:// player3
+
+			break;
+		case 1:// player2
+			p = new Point(514, 30);
+			offset = 31;
+			color = Color.BLUE;
+			break;
+		case 2:// player3
 			p = new Point(60, 485);
 			offset = -1;
-			color = Color.YELLOW;               
+			color = Color.YELLOW;
 			break;
-		    case 3:// player4
+		case 3:// player4
 			p = new Point(514, 485);
 			offset = 47;
 			color = Color.GREEN;
 			break;
-		    default: // This should never happen
+		default: // This should never happen
 			p = new Point(60, 60);
 			color = Color.RED;
 		}
-	    
+
 		t = new Token[NUM_TOKENS];
 		for (int i = 0; i < NUM_TOKENS; i++) {
 			t[i] = new Token(i, p.x, p.y, getColor());
 		}
-	    
-    	}
+	}
 
 	public ArrayList<String> getAvailableTokens() {
 		ArrayList<String> available = new ArrayList<String>();
@@ -93,11 +97,12 @@ class Player extends JPanel {
 	}
 
 	/*
-	* Choose Player's Token to move with Error Bounds Checking
-	*/
+	 * Choose Player's Token to move with Error Bounds Checking
+	 */
 	public int chooseToken() {
 		int tok = -1;
 		ArrayList<String> available = getAvailableTokens();
+		// return 0;
 		if (available.size() > 0) {
 			while (tok > 3 || tok < 0) {
 				String[] options = new String[available.size()];
@@ -115,10 +120,14 @@ class Player extends JPanel {
 				// tok = Integer.parseInt(x);
 			}
 		}
-		
+
 		return tok;
 	}
 
+	/*
+	 * Select Token To Move, returns an integer representing a valid usable
+	 * token. -1 otherwise
+	 */
 	public int autoSelectFreeToken() {
 		int tok = -1;
 		for (int k = 0; k < NUM_TOKENS; k++) {
@@ -128,6 +137,7 @@ class Player extends JPanel {
 			}
 		}
 		return tok;
+
 	}
 
 	public void setPoint(int x, int y) {
@@ -135,8 +145,8 @@ class Player extends JPanel {
 	}
 
 	/*
-	* Updates the Player info and tokens on board
-	*/
+	 * Updates the Player info and tokens on board
+	 */
 	public void update(Graphics g,Color col) {
 		g.setColor(color);
 		g.fillRect(p.x, p.y, 310, 310);
@@ -150,8 +160,9 @@ class Player extends JPanel {
 	}
 
 	/*
-	* Checks if Player has won. Returns a boolean representation of the condition
-	*/
+	 * Checks if Player has won. Returns a boolean representation of the
+	 * condition
+	 */
 	public boolean hasWon() {
 		for (int i = 0; i < 4; i++) {// Return False if any aren't safe
 			if (!t[i].isSafe()) {
@@ -166,15 +177,15 @@ class Player extends JPanel {
 	}
 
 	/*
-	* gets Player Color
-	*/
+	 * gets Player Color
+	 */
 	public Color getColor() {
 		return color;
 	}
 
 	/*
-	* Nested Token Object Class, each player has 4 tokens
-	*/
+	 * Nested Token Object Class, each player has 4 tokens
+	 */
 	class Token {
 		// Index Represents where a piece is on the board
 		// Do not change SAFE or else
@@ -185,12 +196,12 @@ class Player extends JPanel {
 		private int index;
 		private Point pos;
 		private Color c;
-		
+
 		// This constructor takes the players individual Corner Parameters so it
 		// knows where each players nest is
 		public Token(int i, int x, int y, Color col) {
 			lastEight = false;
-			tokenSize = 20;
+			tokenSize = 30;
 			id = i;
 			index = 0;
 			pos = new Point(x, y);
@@ -205,6 +216,7 @@ class Player extends JPanel {
 			g.drawRect(x, y, tokenSize, tokenSize);
 			g.drawString(Integer.toString(id), x + 10, y + 20);
 		}
+
 		public void draw(Graphics g,Color col) {
 			// If not on board(index 0), draw within it's corresponding box
 			if (index == 0) {
@@ -233,11 +245,11 @@ class Player extends JPanel {
 
 		}
 
-
 		/*
-		 * If the player has traversed the entire board, then we want to go down the
-		 * players safe zone for a win! Returns -1 if false Returns any other positive
-		 * value to represent how many spaces the user can traverse following the turn
+		 * If the player has traversed the entire board, then we want to go down
+		 * the players safe zone for a win! Returns -1 if false Returns any
+		 * other positive value to represent how many spaces the user can
+		 * traverse following the turn
 		 */
 		public int checkTraversal() {
 			if (getPositionIndex() >= SAFE) {
@@ -279,8 +291,35 @@ class Player extends JPanel {
 			}
 		}
 
+		/*
+		 * Returns Token ID
+		 */
+		public int getID() {
+			return id;
+		}
 
-		// Getter and Setter
+		/*
+		 * Sets Token ID
+		 */
+		public void setID(int i) {
+			id = i;
+		}
+
+		/*
+		 * Gets Token Traversal Index
+		 */
+		public int getPositionIndex() {
+			return index;
+		}
+
+		/*
+		 * Sets Token Traversal Index
+		 */
+		public void setPositionIndex(int x) {
+			System.out.println("Set index plus " + x);
+			index = x;
+		}
+
 		public void setX(int xPos) {
 			pos.x = xPos;
 		}
@@ -304,7 +343,6 @@ class Player extends JPanel {
 		public int getHeight() {
 			return tokenSize;
 		}
-		
-	}
 
+	}
 }

@@ -1,7 +1,10 @@
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
+
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Board extends JPanel {
@@ -18,51 +21,51 @@ public class Board extends JPanel {
 	private Color base = new Color(0, 179, 21);
 	private Color[] col = {red,blue,green,yellow};
 	private int SIZE =45;
-  
-  //Board Constructor Constructs a custom board for numPlayers to play
-  public Board(int numPlayers) {
-    numGamePlayers = numPlayers;
+
+	/*
+	 * Board Constructor Constructs a custom board for numPlayers to play
+	 */
+	public Board(int numPlayers) {
+		numGamePlayers = numPlayers;
 
 		p = new Player[numPlayers];
 		for (int i = 0; i < numPlayers; i++) {
 			p[i] = new Player(i);
 		}
-  }
-  
-  
-  //Function to pre-load the points for all pieces to aid in debugging traversal issues
-  public static void debugLoadPoints() {
-    for (int i = 0; i < numGamePlayers; i++) {
+	}
+
+	/*
+	 * Function to pre-load the points for all pieces to aid in debugging
+	 * traversal issues
+	 */
+	public static void debugLoadPoints() {
+		for (int i = 0; i < numGamePlayers; i++) {
 			for (int j = 0; j < numGamePlayers; j++) {
 				p[i].t[j].setPositionIndex(61);
 			}
 		}
-  }
+	}
 
-  
-  	/*
+	/*
 	 * Check For Winner! Return -1 for no winner, else return player index.
 	 * Should only ever return -1,0,1,2,3. Nothing else.
 	 */
 	public static int checkWin() {
-	
-	for (int i = 0; i < numGamePlayers; i++) {
+		for (int i = 0; i < numGamePlayers; i++) {
 			if (p[i].hasWon()) {
 				return p[i].getPID();
 			}
 
 		}
 		return -1;
-		
-  }
-  
-  
-  	/*
+	}
+
+	/*
 	 * MovePlayer moves and sets the players Token locations on the board tv =
 	 * turnValue Moves Player based on tv index.
 	 */
 	public static void movePlayer(int tv, int r) {
-    		int tok = p[tv].chooseToken();// Select Token
+		int tok = p[tv].chooseToken();// Select Token
 		int i = p[tv].t[tok].getPositionIndex();// Get the Current Index
 
 		p[tv].t[tok].setPositionIndex(i + r);// Set the current Index + the roll
@@ -93,52 +96,60 @@ public class Board extends JPanel {
 			// System.out.println("pt:" + points.get(z).x + " "+
 			// points.get(z).y);
 		}
-  }
-  
-  
-	 //Returns List of Points, for the Game Logic Array.
+
+	}
+
+	/*
+	 * Returns List of Points, for the Game Logic Array.
+	 */
 	public ArrayList<Point> getPoints() {
 		ArrayList<Point> pts = new ArrayList<Point>();
 		pts = points;
 		return pts;
 	}
-  
-  
-	 //Returns Point List Length
+
+	/*
+	 * Returns Point List Length
+	 */
 	public int getPointLength() {
 		return points.size();
 	}
-  
-	 //Prints out point list for debugging purposes
-	
+
+	/*
+	 * Prints out point list for debugging purposes
+	 */
 	public void printPoints() {
 		for (int i = 0; i < points.size(); i++) {
 			System.out.println(points.get(i));
 		}
 	}
-  
-  
-	//Returns Block Size for Board
+
+	/*
+	 * Returns Block Size for Board
+	 */
 	public int getBlockSize() {
 		return SIZE;
-  }
-  
-  
-  	//Handles Painting the Players info and Tokens
+	}
+
+	/*
+	 * Handles Painting the Players info and Tokens
+	 */
+
 	public void paintPlayerOverlay(Graphics g) {
 		for (int i = 0; i < p.length; i++) {
 			p[i].update(g,col[i]);
 		}
 	}
-  
-  
-	 //Paints the Board, Players, and tokens
+
+	/*
+	 * Paints the Board, Players, and tokens
+	 */
 	public void paint(Graphics g) {
 		super.paint(g);
 		points = new ArrayList<Point>();
 		int size = SIZE;
-		int x = 15;// starting
-		int y = 315;
+		int x = 60;// starting
+		int y = 345;
 		int w = size;
 		int h = size;
 
@@ -157,7 +168,7 @@ public class Board extends JPanel {
 			points.add(new Point(x, y));
 			y -= size;
 		}
-		
+
 		x += size;
 		y += size;
 		// Top, Center
@@ -296,6 +307,6 @@ public class Board extends JPanel {
 		}
 
 		paintPlayerOverlay(g);
-  	}
+	}
 
 }
