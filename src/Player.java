@@ -2,9 +2,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
 
 /*
  * POINT DATA DECLARED AT BOTTOM OF FILE!!! In Token Class
@@ -144,7 +143,16 @@ class Player extends JPanel {
 	* Checks if Player has won. Returns a boolean representation of the condition
 	*/
 	public boolean hasWon() {
-
+		for (int i = 0; i < 4; i++) {// Return False if any aren't safe
+			if (!t[i].isSafe()) {
+				return false;
+			} else {
+				System.out.println("Player:hasWon(): Player " + pid + " token "
+						+ i + " is safe");
+			}
+		}
+		System.out.println("Player: Player " + pid + " Has Won");
+		return true;
 	}
 
 	/*
