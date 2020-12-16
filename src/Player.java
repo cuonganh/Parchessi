@@ -166,11 +166,25 @@ class Player extends JPanel {
 	* Nested Token Object Class, each player has 4 tokens
 	*/
 	class Token {
-
+		// Index Represents where a piece is on the board
+		// Do not change SAFE or else
+		private final int SAFE = 63;// Index for all Safe Tokens!
+		private boolean lastEight;
+		private int tokenSize;
+		private int id;
+		private int index;
+		private Point pos;
+		private Color c;
+		
 		// This constructor takes the players individual Corner Parameters so it
 		// knows where each players nest is
 		public Token(int i, int x, int y, Color col) {
-
+			lastEight = false;
+			tokenSize = 20;
+			id = i;
+			index = 0;
+			pos = new Point(x, y);
+			c = col;
 		}
 
 		// Draws a token, anywhere on the board we want to
