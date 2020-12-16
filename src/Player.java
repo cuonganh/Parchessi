@@ -229,7 +229,16 @@ class Player extends JPanel {
 		 * value to represent how many spaces the user can traverse following the turn
 		 */
 		public int checkTraversal() {
-
+			if (getPositionIndex() >= SAFE) {
+				System.out.println("Player:Token:checkTraversal(): Token " + id
+						+ " is on last eight");
+				lastEight = true;
+				System.out.println("PI: " + getPositionIndex() + "   "
+						+ (getPositionIndex() % SAFE));
+				return getPositionIndex() % SAFE;
+			} else {
+				return -1;
+			}
 		}
 
 		/*
@@ -250,7 +259,13 @@ class Player extends JPanel {
 		 * Checks to see if the token is Safe, or not
 		 */
 		public boolean isSafe() {
-
+			if (index >= SAFE) {
+				// System.out.println("Player:Token:isSafe(): Token " + id +
+				// " is safe");
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 
