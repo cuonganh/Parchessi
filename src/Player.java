@@ -137,7 +137,7 @@ class Player extends JPanel {
 	/*
 	* Updates the Player info and tokens on board
 	*/
-	public void update(Graphics g) {
+	public void update(Graphics g,Color col) {
 		g.setColor(color);
 		g.fillRect(p.x, p.y, 310, 310);
 		g.setColor(Color.BLACK);
@@ -145,9 +145,8 @@ class Player extends JPanel {
 		g.drawString("Player " + pid, p.x + 9, p.y + 16);
 		// Update Tokens
 		for (int i = 0; i < NUM_TOKENS; i++) {
-			t[i].draw(g);
+			t[i].draw(g,col);
 		}
-
 	}
 
 	/*
