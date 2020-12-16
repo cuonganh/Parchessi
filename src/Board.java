@@ -16,6 +16,7 @@ public class Board extends JPanel {
 	private Color safeBorder = new Color(0, 255, 0);
 	private Color safeFill = new Color(0, 150, 150);
 	private Color base = new Color(0, 179, 21);
+	private Color[] col = {red,blue,green,yellow};
 	private int SIZE =45;
   
   //Board Constructor Constructs a custom board for numPlayers to play
@@ -126,7 +127,7 @@ public class Board extends JPanel {
   	//Handles Painting the Players info and Tokens
 	public void paintPlayerOverlay(Graphics g) {
 		for (int i = 0; i < p.length; i++) {
-			p[i].update(g);
+			p[i].update(g,col[i]);
 		}
 	}
   
