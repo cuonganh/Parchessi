@@ -41,6 +41,17 @@ class Player extends JPanel {
 			offset = 31;
 			color = Color.BLUE;
 			break;
+				//			specialPointData.add(new Point(335, 35));
+//			specialPointData.add(new Point(335, 75));
+//			specialPointData.add(new Point(335, 115));
+//
+//			specialPointData.add(new Point(335, 155));
+//			specialPointData.add(new Point(335, 195));
+//			specialPointData.add(new Point(335, 235));
+//
+//			specialPointData.add(new Point(335, 275));
+//			specialPointData.add(new Point(335, 315));
+//			specialPointData.add(new Point(335, 355));
 		    case 2:// player3
 			p = new Point(60, 485);
 			offset = -1;
@@ -196,32 +207,34 @@ class Player extends JPanel {
 			g.drawString(Integer.toString(id), x + 7, y + 15);
 		}
 
-		public void draw(Graphics g) {
+		public void draw(Graphics g,Color col) {
 			// If not on board(index 0), draw within it's corresponding box
 			if (index == 0) {
 				switch (id) {
 				case 0:
-					drawToken(g, p.x + 30, p.y + 30);
+					drawToken(g, p.x + 115, p.y + 115,col);
 					break;
 				case 1:
-					drawToken(g, p.x + 60, p.y + 30);
+					drawToken(g, p.x + 165, p.y + 115,col);
 					break;
 				case 2:
-					drawToken(g, p.x + 30, p.y + 60);
+					drawToken(g, p.x + 115, p.y + 165,col);
 					break;
 				case 3:
-					drawToken(g, p.x + 60, p.y + 60);
+					drawToken(g, p.x + 165, p.y + 165,col);
 					break;
 				default:
 				}
 			} else {
 				if (getPositionIndex() >= 63) {// Else Draw Safe zone
-					drawToken(g, 335 + 10, 355 + 10);
+					drawToken(g, 335 + 0, 355 + 0,col);
 				} else {// Else Draw on Board
-					drawToken(g, getX(), getY());
+					drawToken(g, getX(), getY(),col);
 				}
 			}
+
 		}
+
 
 		/*
 		 * If the player has traversed the entire board, then we want to go down the
