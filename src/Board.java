@@ -45,7 +45,14 @@ public class Board extends JPanel {
 	 */
 	public static int checkWin() {
 	
+	for (int i = 0; i < numGamePlayers; i++) {
+			if (p[i].hasWon()) {
+				return p[i].getPID();
+			}
+
+		}
 		return -1;
+		
   }
   
   
