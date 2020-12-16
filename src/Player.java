@@ -17,10 +17,10 @@ class Player extends JPanel {
 	private int pid;// Player id
 	private Point p;// Player info,Starting point for pieces for each player
 	private Color color;
-	private Color red = new Color(255, 0, 0);
-	private Color blue = new Color(0, 0, 255);
-	private Color green = new Color(0, 255, 0);
-	private Color yellow = new Color(255, 255, 0);
+	private Color red = new Color(194, 54, 22);
+	private Color blue = new Color(52, 152, 219);
+	private Color green = new Color(76, 209, 55);
+	private Color yellow = new Color(243, 156, 18);
 	
 	private int offset;
 	public Token[] t;
@@ -149,8 +149,8 @@ class Player extends JPanel {
 	 */
 	public void update(Graphics g,Color col) {
 		g.setColor(color);
-		g.fillRect(p.x, p.y, 310, 310);
-		g.setColor(Color.BLACK);
+		g.fillRect(p.x+20, p.y+20, 270, 270);
+		g.setColor(Color.black);
 		g.drawRect(p.x, p.y, 310, 310);
 		g.drawString("Player " + pid, p.x + 9, p.y + 16);
 		// Update Tokens

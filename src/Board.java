@@ -12,14 +12,14 @@ public class Board extends JPanel {
 	private static int numGamePlayers;
 	private static Player[] p;
 	private Color tile = new Color(0, 0, 0);
-	private Color red = new Color(255, 0, 0);
-	private Color blue = new Color(0, 0, 255);
-	private Color green = new Color(0, 255, 0);
-	private Color yellow = new Color(255, 255, 0);
+	private Color red = new Color(194, 54, 22);
+	private Color blue = new Color(52, 152, 219);
+	private Color green = new Color(76, 209, 55);
+	private Color yellow = new Color(243, 156, 18);
 	private Color safeBorder = new Color(0, 255, 0);
 	private Color safeFill = new Color(0, 150, 150);
 	private Color base = new Color(0, 179, 21);
-	private Color[] col = {red,blue,green,yellow};
+	private Color[] col = {red,blue,yellow,green};
 	private int SIZE =45;
 
 	/*
