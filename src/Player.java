@@ -199,14 +199,13 @@ class Player extends JPanel {
 		}
 
 		// Draws a token, anywhere on the board we want to
-		public void drawToken(Graphics g, int x, int y) {
-			g.setColor(c);
+		public void drawToken(Graphics g, int x, int y,Color col) {
+			g.setColor(col);
 			g.fillRect(x, y, tokenSize, tokenSize);
-			g.setColor(Color.BLACK);
+			g.setColor(Color.darkGray);
 			g.drawRect(x, y, tokenSize, tokenSize);
-			g.drawString(Integer.toString(id), x + 7, y + 15);
+			g.drawString(Integer.toString(id), x + 10, y + 20);
 		}
-
 		public void draw(Graphics g,Color col) {
 			// If not on board(index 0), draw within it's corresponding box
 			if (index == 0) {
